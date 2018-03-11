@@ -4,8 +4,8 @@
 		    VueResumer
 		</div>
 		<div class="actions">
-			<button>登录</button>
-			<button>注册</button>
+			<el-button type="primary">注册</el-button>
+			<el-button>登录</el-button>
 		</div>
 	</div>
 </template>
@@ -15,5 +15,7 @@
 	display: flex;
     justify-content: space-between; 
     padding: 16px;
+    font-size: 20px;
+    align-items: center;
 }
 </style>
