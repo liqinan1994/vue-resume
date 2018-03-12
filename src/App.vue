@@ -48,12 +48,12 @@ main {
   flex: 1;
   background: #ddd;
     >.editor {
-    width: 20em;
+    width: 40em;
     margin: 16px 8px 16px 16px;
     background: #fff;
     box-shadow: 0 0 3px hsla(0,0,0,0.4);
     border-radius: 4px;
-    overflow: hidden;
+    overflow: auto;
   }
   >.preview {
     flex: 1;
