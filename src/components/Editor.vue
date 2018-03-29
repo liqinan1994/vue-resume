@@ -20,7 +20,7 @@
 
             <!-- 工作经历 -->
 			<li v-bind:class="{active:currentTab === 1}">
-                <arrayEditor v-bind:items="resume.workHistory" v-bind:labels="{company:'公司',content:'工作内容'}" title="工作经历" />
+                <arrayEditor v-bind:items="resume.workHistory" v-bind:labels="{duration:'工作时间',company:'公司',content:'工作内容'}" title="工作经历" />
 			</li>
 
 			<!-- 学习经历 -->
@@ -67,7 +67,7 @@
 		min-height: 100px;
 		> nav {
 			width: 80px;
-			background: #000;
+			background: #5bafd8;
 			> ol > li {
 				padding: 8px 0;
 				text-align: center;

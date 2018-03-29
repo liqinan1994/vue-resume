@@ -1,6 +1,7 @@
 <template>
   <div id="app" v-bind:class="{previewMode : previewMode}">
-    <Topbar class="topbar" v-on:preview="preview" />
+    <Login id="login" v-bind:class="{loginMode:loginMode}" v-on:exit="exit"/>
+    <Topbar class="topbar" v-on:preview="preview" v-on:login="login"/>
     <main>
       <Editor v-bind:resume="resume" class="editor" />
       <Preview v-bind:resume="resume" class="preview" />
@@ -14,13 +15,15 @@
 import Topbar from './components/Topbar'
 import Editor from './components/Editor'
 import Preview from './components/Preview'
+import Login from './components/Login'
 export default {
   name: 'App',
   components: {
-    Topbar,Editor,Preview
+    Topbar,Editor,Preview,Login
   },
   data(){
     return {
+      loginMode: false,
       previewMode:false,
       resume: {
         profile: {
@@ -29,7 +32,7 @@ export default {
           birth: ''
         },
         workHistory: [
-          {company: '', content: ''}
+          {duration:'', company: '', content: ''}
         ],
         studyHistory: [
           {school: '',degree: '',duration: ''}
@@ -50,6 +53,12 @@ export default {
     }    
   },
   methods: {
+    login(){
+      this.loginMode = true
+    },
+    exit(){
+      this.loginMode = false
+    },
     preview(){
       this.previewMode = true
     },
@@ -123,6 +132,22 @@ main {
   position: fixed;
   right: 16px;
   bottom: 16px;
+}
+
+#login {
+  display: none;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0px 0px 2px 2px hsla(0, 0, 0, 0.3);
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+#app>.loginMode {
+  display: block;
 }
 
 </style>
