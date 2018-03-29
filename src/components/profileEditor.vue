@@ -1,15 +1,9 @@
 <template>
 <div>
-	<h2>个人信息</h2>
+	<h2>{{title}}</h2>
 	<el-form>
-		<el-form-item label="姓名">
-		    <el-input v-model="profile.name" ></el-input>
-		</el-form-item>
-		<el-form-item label="城市">
-		    <el-input v-model="profile.city"></el-input>
-		</el-form-item>
-		<el-form-item label="出生年月">
-		    <el-input v-model="profile.birth"></el-input>
+		<el-form-item v-for="(value,key) in items" v-bind:label="labels[key] || key" v-bind:key="key">
+		    <el-input v-model="items[key]" ></el-input>
 		</el-form-item>
 	</el-form>
 </div>
@@ -17,6 +11,6 @@
 
 <script>
 	export default {
-		props: ['profile']
+		props: ['items','labels','title']
 	}
 </script>

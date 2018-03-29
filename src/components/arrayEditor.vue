@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<h2>{{title}}</h2>
-		{{keys}}
+		<!-- {{keys}} -->
 		<el-form>
-			<div class="container" v-for="(item,index) in items">
+			<div class="container" v-for="(item,index) in items" v-bind:key="index">
    			  <el-form-item v-for="key in keys" v-bind:label="labels[key] || key" v-bind:key="key">
 			    <el-input v-model="item[key]" ></el-input>
 			  </el-form-item>		
@@ -19,6 +19,7 @@
 	export default {
 		props: ['items','labels','title'],
 		computed: {
+
 			keys(){
 				return Object.keys(this.items[0])
 			}
@@ -26,6 +27,7 @@
 		methods: {
             addItem(){
             	const empty = {}
+
                 this.keys.map((key)=>{
                 	empty[key] = ''
                 })

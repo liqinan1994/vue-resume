@@ -11,6 +11,19 @@
 					{{work.content}}
 				</li>
 			</ul>
+			<hr>
+		</section>
+
+		<section v-if="filter(resume.studyHistory).length > 0">
+			<h2>学习经历</h2>
+			<ul>
+				<li v-for="study in filter(resume.studyHistory)">
+					{{study.school}}
+					{{study.degree}}
+					{{study.duration}}
+
+				</li>
+			</ul>
 		</section>
 
 		<section v-if="filter(resume.projects).length > 0">
